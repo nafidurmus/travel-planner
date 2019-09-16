@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-lg-6">
+      <h4>Country info</h4>
+      <dl>
+        <dt>Country</dt>
+        <dd><%= @country['name'] %></dd>
+        <dt>Capital</dt>
+        <dd><%= @country['capital'] %></dd>
+        <dt>Currency</dt>
+        <dd><%= @country['currencies'].join(', ') %></dd>
+        <dt>Timezone(s)</dt>
+        <dd><%= @country['timezones'].join(', ') %></dd>
+      </dl>
+    </div>
+    <div class="col-lg-6">
+      <h4>Weather Info</h4>
+      <dl>
+        <% @weather['list'].each do |weather| %>
+          <dt><%= weather['dt_txt'] %></dt>
+          <dd>
+            <strong>Min</strong> <%= to_fahrenheit weather['main']['temp_min'] %>
+            <strong>Max</strong> <%= to_fahrenheit weather['main']['temp_max'] %>
+          </dd>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+</div
